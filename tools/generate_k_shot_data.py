@@ -85,7 +85,7 @@ def main():
         default=[100, 13, 21, 42, 87],
         help="Random seeds")
 
-    parser.add_argument("--data_dir", type=str, default="data/original", help="Path to original data")
+    parser.add_argument("--data_dir", type=str, default="/content/original", help="Path to original data")
     parser.add_argument("--output_dir", type=str, default="data", help="Output path")
     parser.add_argument("--mode", type=str, default='k-shot', choices=['k-shot', 'k-shot-10x'], help="k-shot or k-shot-10x (10x dev set)") 
 
