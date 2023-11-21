@@ -24,7 +24,7 @@ requests==2.25.1
 sacremoses==0.0.43
 scikit-learn==0.24.0
 scipy==1.5.4
-sentence-transformers==0.4.0
+sentence-transformers
 sentencepiece==0.1.94
 six==1.15.0
 threadpoolctl==2.1.0
