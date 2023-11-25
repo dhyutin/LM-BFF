@@ -209,7 +209,7 @@ def generate(dataset, template, model, tokenizer, target_number, mapping, beam, 
     for item in current_output:
         generate_text = ''
         for token in item['output']:
-            generate_text += tokenizer._convert_id_to_token(token)
+            generate_text += tokenizer.decode(token)
         print('--------------')
         print('score:', item['ll'].item())
         print('generated ids', item['output'])
