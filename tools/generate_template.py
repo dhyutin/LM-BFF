@@ -312,19 +312,19 @@ def search_template(model, tokenizer, task_name, k, seed, beam, output_dir, data
             f.write(text + '\n')
         print("####### generated templates #######\n")
 
-        # template = "*cls*.*<extra_id_0>**label**<extra_id_1>**+sentu_0**sep+*"
-        # generate_text = generate(dataset, template, model, tokenizer, target_number=2, mapping=mapping, beam=beam, label=None, truncate='tail')[:beam//2]
-        # print("####### generated templates #######")
-        # for text in generate_text:
-        #     # Transform T5 outputs to our template format
-        #     text = text.replace('<extra_id_0>', '*cls*')
-        #     text = text.replace('<extra_id_1>', '*mask*')
-        #     text = text.replace('<extra_id_2>', '*+sent_0**sep+*')
-        #     text = text.replace('</s>', '*+sent_0**sep+*')
-        #     text = text.replace('▁', '_')
-        #     print(text)
-        #     f.write(text + '\n')
-        # print("####### generated templates #######\n")
+        template = "*cls*.*<extra_id_0>**label**<extra_id_1>**+sentu_0**sep+*"
+        generate_text = generate(dataset, template, model, tokenizer, target_number=2, mapping=mapping, beam=beam, label=None, truncate='tail')[:beam//2]
+        print("####### generated templates #######")
+        for text in generate_text:
+            # Transform T5 outputs to our template format
+            text = text.replace('<extra_id_0>', '*cls*')
+            text = text.replace('<extra_id_1>', '*mask*')
+            text = text.replace('<extra_id_2>', '*+sent_0**sep+*')
+            text = text.replace('</s>', '*+sent_0**sep+*')
+            text = text.replace('▁', '_')
+            print(text)
+            f.write(text + '\n')
+        print("####### generated templates #######\n")
 
     elif task_name in ['MRPC', 'QQP', 'STS-B', 'MNLI', 'SNLI', 'QNLI', 'RTE']:
         # Sentence pair tasks
