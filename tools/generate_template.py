@@ -359,7 +359,7 @@ def main():
  
     args = parser.parse_args()
 
-    model = T5ForConditionalGeneration.from_pretrained(args.t5_model, model_max_length = 2048)
+    model = T5ForConditionalGeneration.from_pretrained(args.t5_model)
     tokenizer = T5Tokenizer.from_pretrained(args.t5_model, model_max_length = 2048)
     tokenizer.sep_token = '</s>'
 
