@@ -10,7 +10,7 @@ import pandas as pd
 
 def get_text(template, input_text_tuple, label, tokenizer, mapping):
     def enc(text):
-        return tokenizer.encode(text, add_special_tokens=False)
+        return tokenizer.encode(text, add_special_tokens=True)
     special_token_mapping = {'cls': tokenizer.cls_token_id, 'mask': tokenizer.mask_token_id, 'sep': tokenizer.sep_token_id, 'sep+': tokenizer.sep_token_id}
     for i in range(10):
         special_token_mapping["<extra_id_%d>" % (i)] = tokenizer._convert_token_to_id("<extra_id_%d>" % (i))
